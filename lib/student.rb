@@ -26,9 +26,9 @@ class Student
 
   def self.all_students_in_grade_9
     rows = DB[:conn].execute("SELECT * FROM students WHERE grade="9" LIMIT 1")
-    row.map do |row|
+    rows.map do |row|
       self.new_from_db(row)
-    end 
+    end
   end
   def save
     sql = <<-SQL
