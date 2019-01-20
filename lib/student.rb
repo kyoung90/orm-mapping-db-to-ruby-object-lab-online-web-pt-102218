@@ -38,12 +38,12 @@ class Student
     end
   end
 
-  def self.all 
+  def self.all
     rows = DB[:conn].execute("SELECT * FROM students")
     rows.map do |row|
       self.new_from_db(row)
-    end 
-  end 
+    end
+  end
 
   def save
     sql = <<-SQL
