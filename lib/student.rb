@@ -56,6 +56,7 @@ class Student
     rows = DB[:conn].execute("SELECT * FROM students WHERE grade='10' LIMIT 1")
     rows.map do |row|
       self.new_from_db(row)
+      binding.pry
     end
   end
 
