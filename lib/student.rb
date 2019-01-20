@@ -33,7 +33,8 @@ class Student
 
   def self.students_below_12th_grade
     rows = DB[:conn].execute("SELECT * FROM students WHERE grade<'12'")
-  end 
+    binding.pry
+  end
 
   def save
     sql = <<-SQL
