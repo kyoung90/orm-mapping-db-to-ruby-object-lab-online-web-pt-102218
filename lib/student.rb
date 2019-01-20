@@ -19,8 +19,9 @@ class Student
   def self.find_by_name(name)
     # find the student in the database given a name
     # return a new instance of the Student class
-    DB[:conn].execute("SELECT * FROM students WHERE name=? LIMIT 1", name)
-    binding.pry
+    row = DB[:conn].execute("SELECT * FROM students WHERE name=? LIMIT 1", name)[0]
+    student = self.new_from_db(row)
+    student
   end
 
   def save
