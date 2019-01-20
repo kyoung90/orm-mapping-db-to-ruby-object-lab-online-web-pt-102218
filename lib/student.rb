@@ -31,6 +31,10 @@ class Student
     end
   end
 
+  def self.students_below_12th_grade
+    rows = DB[:conn].execute("SELECT * FROM students WHERE grade<'12'")
+  end 
+
   def save
     sql = <<-SQL
       INSERT INTO students (name, grade)
